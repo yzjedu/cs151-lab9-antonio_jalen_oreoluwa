@@ -1,47 +1,46 @@
 # Algorithm Document
 #### PLEASE! PLEASE! PLEASE! THINK before you code...
 
-Main tasks:
-- Getting the list of names you want to use for the 
 
 Purpose:  Gets the file to be read and error checks
-Name: get_file
+Name: get_filename()
 Parameters: none
 Return: file_name
 Algorithm:
-1. Ask user to input the file they want to open
-2. while the file does not exist:
+1. Ask the user to input the name of the file they want to open.
+2. While the file does not exist:
    3. Output " Error and please try again"
    4. Prompt user to enter the file again
-3. Return file_name
+3. Once a valid filename is provided, return the file_name.
 
 Purpose: Read the names from the file into a list
-Name: read_data
+Name: read_names
 Parameters: file_name
-Return: data
+Return: names
 Algorithm:
-1. Open and read the file from file_name
-2. Create empty list (values)
-2. for line in fd :
-   3. line = line.strip()
-   4. line = str(line)
-   5. values.append(line)
-3. Store the values from the file into a list
-4. Close file
-5. Return values
+1. Open the file specified by file_name for reading. 
+2. Create an empty list names. 
+3. For each line in the file:
+   4. Strip any whitespace from the line (e.g., newline characters). 
+   5. Convert the line to a string and append it to the names list.
+4. Close the file. 
+5. Return the names list.
 
 Purpose: Format and display the seat
-Name: seating_arrangement 
-Parameters: 
-Return: 
+Name: display_seating_arrangement 
+Parameters: names (list)
+Return: none
 Algorithm:
-1. 
+1. Determine the total number of people using the length of the names list. 
+2. Calculate the number of tables needed (each table seats 5 people). 
+3. Use a loop to assign each name to a table and seat. 
+4. Output the seating arrangement with proper formatting. 
 
 Purpose: Main function
 Name: Main
-Parameters: 
-Return: 
+Parameters: none
+Return: none
 Algorithm:
-1. Call filename
-2. Call list
-3. Call display
+1. Call get_filename() to get the name of the file. 
+2. Call read_data() to read the names from the file and store them in a list. 
+3. Call display_seating_arrangement() to display the seating arrangement using the list of names.
