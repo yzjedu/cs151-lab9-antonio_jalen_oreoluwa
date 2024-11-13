@@ -1,11 +1,11 @@
-# Programmers: Oreoluwa Adebusoye, Jalen
+# Programmers: Oreoluwa Adebusoye, Jalen, Antonio Dueno
 # Course: CS151, Zelalem Yalew
 # Due Date: 11/13
 # Programming Assignment: Lab 09
-# Problem Statement:
-# Data In:
-# Data Out:
-# Credits: None
+# Problem Statement: Create a program that will organize a seating plan for a list of names in a file.
+# Data In: User inputs which file containing a list of names they wish to assign seats to
+# Data Out: Program outputs list of tables and seats and who will be seating at each.
+# Credits: Lecture note codes 10 and 11
 
 import os
 
@@ -15,12 +15,12 @@ import os
 # Return: The valid file name entered by the user
 def read_filename():
     # Prompt user for the filename to read
-    file_name = str(input("What file do you want to read? "))
+    file_name = (input("What file do you want to read? "))
 
     # Check if the file exists, and if not, ask again until a valid file is entered
     while not os.path.isfile(file_name):
         print("That file does not exist. Please try again.")
-        file_name = str(input("\nWhat file do you want to read? "))
+        file_name = (input("\nWhat file do you want to read? "))
 
     # Return the file name if it exists
     return file_name
@@ -37,7 +37,7 @@ def read_file_to_list(file_name):
         file_data = open(file_name, 'r')
 
         # Read each line into the list
-        for line in file_name:
+        for line in file_data:
             line = line.strip()  # Remove any whitespace/newline
             if line:  # Ensure the line is not empty
                 names.append(line)
