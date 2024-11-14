@@ -21,8 +21,8 @@ Algorithm:
 1. Open the file specified by file_name for reading. 
 2. Create an empty list names. 
 3. For each line in the file:
-   4. Strip any whitespace from the line (e.g., newline characters). 
-   5. Convert the line to a string and append it to the names list.
+   1. Strip any whitespace from the line (e.g., newline characters). 
+   2. Append each line to the names list.
 4. Close the file. 
 5. Return the names list.
 
@@ -31,16 +31,23 @@ Name: display_seating_arrangement
 Parameters: names (list)
 Return: none
 Algorithm:
-1. Determine the total number of people using the length of the names list. 
-2. Calculate the number of tables needed (each table seats 5 people). 
-3. Use a loop to assign each name to a table and seat. 
-4. Output the seating arrangement with proper formatting. 
+1. Determine the total number of people using the length of the names list.
+2. Store this in a variable called total_people.
+3. Divide the total number of people by 5 to determine how many tables are required.
+4. For each name in the list:
+   1. Output the seating assignment in the right format
+   2. Increment the seat number by 1 (current_seat += 1). 
+   3. If the seat number exceeds 5 :
+      1. Reset the seat number to 1 and increment the table number by 1 (current_table += 1). 
+5. Output the seating arrangement with proper formatting. 
 
 Purpose: Main function
 Name: Main
 Parameters: none
 Return: none
 Algorithm:
-1. Call get_filename() to get the name of the file. 
-2. Call read_data() to read the names from the file and store them in a list. 
-3. Call display_seating_arrangement() to display the seating arrangement using the list of names.
+1. Output Welcome message
+2. Call get_filename() to get the name of the file. 
+3. Call read_data() to read the names from the file and store them in a list. 
+4. Call display_seating_arrangement() to display the seating arrangement using the list of names.
+5. Output Goodbye message

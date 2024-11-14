@@ -1,4 +1,4 @@
-# Programmers: Oreoluwa Adebusoye, Jalen, Antonio Dueno
+# Programmers: Oreoluwa Adebusoye, Antonio Dueno Martinez, Jalen Henderson
 # Course: CS151, Zelalem Yalew
 # Due Date: 11/13
 # Programming Assignment: Lab 09
@@ -15,12 +15,12 @@ import os
 # Return: The valid file name entered by the user
 def read_filename():
     # Prompt user for the filename to read
-    file_name = (input("What file do you want to read? "))
+    file_name = str(input("What file do you want to read? "))
 
     # Check if the file exists, and if not, ask again until a valid file is entered
     while not os.path.isfile(file_name):
         print("That file does not exist. Please try again.")
-        file_name = (input("\nWhat file do you want to read? "))
+        file_name = str(input("\nWhat file do you want to read? "))
 
     # Return the file name if it exists
     return file_name
@@ -39,8 +39,7 @@ def read_file_to_list(file_name):
         # Read each line into the list
         for line in file_data:
             line = line.strip()  # Remove any whitespace/newline
-            if line:  # Ensure the line is not empty
-                names.append(line)
+            names.append(line)
 
         # Close the file after reading
         file_data.close()
@@ -64,6 +63,7 @@ def read_file_to_list(file_name):
 def display_seating_arrangement(names):
     total_people = len(names)
 
+    # The number of people per table
     people_per_table = 5
     total_tables = total_people // people_per_table
 
@@ -86,12 +86,17 @@ def display_seating_arrangement(names):
             current_seat = 1
             current_table += 1
 
+    print("\nAll attendees have been assigned seats.")
+
 
 # Purpose: Coordinates the program flow.
 # Name: main
 # Parameters: None
 # Return: None
 def main():
+    print("Welcome to the Seating Arrangement Program!")
+    print("This program will assign attendees to tables based on a list of names from a file.\n")
+
     # Get the filename from the user
     file_name = read_filename()
 
@@ -100,6 +105,9 @@ def main():
 
     # Display the seating arrangement
     display_seating_arrangement(names)
+
+    # Final message
+    print("\nThank you for using the Seating Arrangement Program. Goodbye!")
 
 
 # Run the main program if this file is executed
